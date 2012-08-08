@@ -4,6 +4,8 @@
  */
 package com.gabhi.array;
 
+import java.util.Arrays;
+
 /**
  *
  * @author Abhijit Gaikwad <gaikwad.abhijit@gmail.com>
@@ -12,14 +14,15 @@ public class RotateMatrix {
 
     public static void main(String[] args) {
         int[][] a2 = new int[3][3];
-        System.out.println("Initializing Array: ");
+        System.out.println("Initializing Matrix: ");
         initializeArray(a2);
-        System.out.println("Original Array: ");
+        System.out.println("Original Matrix: ");
 
-        printArray(a2);
-        System.out.println("Rotating Array: ");
+        printMatrix(a2);
+        System.out.println("Rotating Matrix: ");
 
-        printArray((rotateArray(a2)));
+        printMatrix((rotateCW(a2)));
+        //printMatrix(rotateCW(rotateCW(a2)));
 
 
     }
@@ -51,15 +54,40 @@ public class RotateMatrix {
             }
             System.out.println("");
         }
+        System.out.println("");
+
     }
+    //i dont get it but good for counterclockwise
 
     public static void initializeArray(int[][] a2) {
         // print array in rectangular form
-        int cnt = 0;
+        int cnt = 1;
         for (int i = 0; i < a2.length; i++) {
             for (int j = 0; j < a2[i].length; j++) {
                 a2[i][j] = cnt++;
             }
-         }
+        }
+    }
+    //works
+
+    static int[][] rotateCW(int[][] mat) {
+        //MxN matrix
+        final int M = mat.length;
+        final int N = mat[0].length;
+
+        int[][] newMatrix = new int[N][M];
+
+        for (int row = 0; row < M; row++) {
+            for (int column = 0; column < N; column++) {
+                newMatrix[column][M - 1 - row] = mat[row][column];
+            }
+        }
+        return newMatrix;
+    }
+
+    static void printMatrix(int[][] matrix) {
+        for (int[] row : matrix) {
+            System.out.println(Arrays.toString(row));
+        }
     }
 }
