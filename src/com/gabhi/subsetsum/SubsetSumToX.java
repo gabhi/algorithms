@@ -38,6 +38,7 @@ public class SubsetSumToX {
 //    4) do a reverse binary search (from the end of the sorted array) looking for that precise value
 //
 //    5) if found, remove both
+    //Complexity is O(n)
     public static void findPairWithTargetSum(int[] inputArray, int targetSum) {
         //assumption Array is sorted if not sort the array first
 
@@ -61,10 +62,9 @@ public class SubsetSumToX {
     private static void report_pair(int a, int b) {
         System.out.println(a + ", " + b);
     }
-    
-    
+
     public static void main(String[] args) {
-                int[] nums = new int[] { 1,2,3,4,5,6,7,8,9};
-                findPairWithTargetSum(nums,7);
+        int[] nums = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
+        findPairWithTargetSum(nums, 7);
     }
 }
