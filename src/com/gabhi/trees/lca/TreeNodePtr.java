@@ -21,17 +21,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
 package com.gabhi.trees.lca;
 
 /**
  *
- * @author Abhijit Gaikwad <gaikwad.abhijit@gmail.com> 
- * visit http://gabhi.com 
+ * @author Abhijit Gaikwad <gaikwad.abhijit@gmail.com> visit http://gabhi.com
  */
 class TreeNodePtr {
+
     int data;
     TreeNodePtr left;
     TreeNodePtr right;
-
 }
