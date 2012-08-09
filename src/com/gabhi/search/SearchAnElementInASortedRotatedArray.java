@@ -27,28 +27,20 @@ package com.gabhi.search;
  *
  * @author Abhijit Gaikwad <gaikwad.abhijit@gmail.com> visit http://gabhi.com
  */
-public class SearchAnElementInASortedRotatedArray
-{
-    public SearchAnElementInASortedRotatedArray()
-    {
+public class SearchAnElementInASortedRotatedArray {
+
+    public SearchAnElementInASortedRotatedArray() {
     }
 
-    public static int pivotedBinarySearch(int[] a, int n, int k)
-    {
+    public static int pivotedBinarySearch(int[] a, int n, int k) {
         int pivot = findPivot(a, 0, n - 1);
 
-        if (pivot != -1)
-        {
-            if (a[pivot] == k)
-            {
+        if (pivot != -1) {
+            if (a[pivot] == k) {
                 return pivot;
-            }
-            else if (a[0] <= k)
-            {
+            } else if (a[0] <= k) {
                 return binarySearch(a, 0, pivot - 1, k);
-            }
-            else
-            {
+            } else {
                 return binarySearch(a, pivot + 1, n - 1, k);
             }
         }
@@ -56,45 +48,15 @@ public class SearchAnElementInASortedRotatedArray
         return -1;
     }
 
-    public static int binarySearch(int[] a, int low, int high, int k)
-    {
-        if (high >= low)
-        {
+    public static int findPivot(int[] a, int low, int high) {
+        if (high >= low) {
             int mid = (low + high) / 2;
 
-            if (a[mid] == k)
-            {
+            if (a[mid] > a[mid + 1]) {
                 return mid;
-            }
-            else if (a[mid] > k)
-            {
-                return binarySearch(a, low, mid - 1, k);
-            }
-            else
-            {
-                return binarySearch(a, mid + 1, high, k);
-            }
-        }
-
-        return -1;
-    }
-
-    public static int findPivot(int[] a, int low, int high)
-    {
-        if (high >= low)
-        {
-            int mid = (low + high) / 2;
-
-            if (a[mid] > a[mid + 1])
-            {
-                return mid;
-            }
-            else if (a[low] > a[mid])
-            {
+            } else if (a[low] > a[mid]) {
                 return findPivot(a, low, mid - 1);
-            }
-            else
-            {
+            } else {
                 return findPivot(a, mid + 1, high);
             }
         }
@@ -102,10 +64,25 @@ public class SearchAnElementInASortedRotatedArray
         return -1;
     }
 
-    public static void main(String[] args)
-    {
+    public static int binarySearch(int[] a, int low, int high, int k) {
+        if (high >= low) {
+            int mid = (low + high) / 2;
+
+            if (a[mid] == k) {
+                return mid;
+            } else if (a[mid] > k) {
+                return binarySearch(a, low, mid - 1, k);
+            } else {
+                return binarySearch(a, mid + 1, high, k);
+            }
+        }
+
+        return -1;
+    }
+
+    public static void main(String[] args) {
         //  Input Array
-        int[] a = { 3, 4, 5, 6, 1, 2 };
+        int[] a = {3, 4, 5, 6, 1, 2};
 
         //  k - Element to be found
         int k = 1;
