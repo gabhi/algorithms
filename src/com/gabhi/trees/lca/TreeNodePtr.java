@@ -27,9 +27,9 @@ package com.gabhi.trees.lca;
  *
  * @author Abhijit Gaikwad <gaikwad.abhijit@gmail.com> visit http://gabhi.com
  */
-class TreeNodePtr {
+public class TreeNodePtr {
 
-    int data;
-    TreeNodePtr left;
-    TreeNodePtr right;
+    public int data;
+    public TreeNodePtr left;
+    public TreeNodePtr right;
 }
