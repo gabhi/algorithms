@@ -64,6 +64,7 @@ public class SearchAnElementInASortedRotatedArray {
         return -1;
     }
 
+    
     public static int binarySearch(int[] a, int low, int high, int k) {
         if (high >= low) {
             int mid = (low + high) / 2;
