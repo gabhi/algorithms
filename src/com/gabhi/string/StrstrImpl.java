@@ -29,17 +29,28 @@ package com.gabhi.string;
  */
 public class StrstrImpl {
 
-    public int Search(String haystack, String needle) {
-        for (int i = 0; i < haystack.length(); i++) {
-            for (int j = 0; j < needle.length()
-                    && i + j < haystack.length(); j++) {
-                if (needle.charAt(j) != haystack.charAt(i + j)) {
+    public static  int Search(String s1, String s2) {
+        for (int i = 0; i < s1.length(); i++) {
+           
+          for (int j = 0; j < s2.length() && i + j < s1.length(); j++) 
+          {
+                if (s2.charAt(j) != s1.charAt(i + j))
+                {
                     break;
-                } else if (j == needle.length() - 1) {
+                } else if (j == s2.length() - 1)
+                {
                     return i;
                 }
             }
         }
         return -1;
+    }
+    
+    public static void main(String[] args)
+    {
+      String s1 = "abc";
+      String s2 = "aad";
+      
+      System.out.print(Search(s1,s2));
     }
 }
