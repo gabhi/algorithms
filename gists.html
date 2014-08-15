@@ -19,7 +19,7 @@
 {{raw}}
     </div>
     <script type="text/javascript">
-    function MyController($scope,$http) {
+    function MyController($scope,$http,$httpProvider) {
         $httpProvider.defaults.useXDomain = true;
 delete $httpProvider.defaults.headers.common['X-Requested-With'];
         $scope.gists = $http.get("https://api.github.com/users/gabhi/gists");
