@@ -12,25 +12,18 @@
 
         <ul class="example-animate-container">
     <li class="animate-repeat" ng-repeat="gist in gists.data">
-      <a href="" ng-click="getdata(gist.id)">{{gist.description}}</a>
+      <a ng-href="gist.html_url" target="_blank" >{{gist.description}}</a>
     </li>
      
   </ul>
 {{raw}}
     </div>
     <script type="text/javascript">
-    function MyController($scope,$http,$httpProvider) {
-        $httpProvider.defaults.useXDomain = true;
-delete $httpProvider.defaults.headers.common['X-Requested-With'];
+    function MyController($scope,$http) {
+         
         $scope.gists = $http.get("https://api.github.com/users/gabhi/gists");
          //https://gist.githubusercontent.com/gabhi/{{gist.id}}/raw
-        $scope.getdata = function(id) {
-            var url = "https://gist.githubusercontent.com/gabhi/"+id+"/raw";
-            $scope.url = url;
-            $scope.raw=$http.get(url);
-            //   $scope.raw = $http.get("https://api.github.com/users/gabhi/gists");
-
-        }
+        
     }
     </script>
 </body>
