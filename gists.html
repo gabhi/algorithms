@@ -8,22 +8,27 @@
 
 <body>
     <div ng-controller="MyController">
-         
+        <input type="search" ng-model="q" placeholder="filter gists..." />
+
 
         <ul class="example-animate-container">
-    <li class="animate-repeat" ng-repeat="gist in gists.data">
-      <a ng-href="{{gist.html_url}}" target="_blank" >{{gist.description}}</a>
-    </li>
-     
-  </ul>
-{{raw}}
+            <li class="animate-repeat" ng-repeat="gist in gists.data | filter:q ">
+                <a target="_blank" ng-href="{{gist.html_url}}">{{gist.description}}</a>
+            </li>
+
+        </ul>
+
+
+         
+
+
+
     </div>
     <script type="text/javascript">
-    function MyController($scope,$http) {
-         
-        $scope.gists = $http.get("https://api.github.com/users/gabhi/gists");
-         //https://gist.githubusercontent.com/gabhi/{{gist.id}}/raw
-        
+    function MyController($scope, $http) {
+        $scope.gists = $http.get("https://api.github.com/users/gabhi/gists?per_page=200");
+        //https://gist.githubusercontent.com/gabhi/{{gist.id}}/raw
+
     }
     </script>
 </body>
