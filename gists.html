@@ -20,6 +20,8 @@
     </div>
     <script type="text/javascript">
     function MyController($scope,$http) {
+        $httpProvider.defaults.useXDomain = true;
+delete $httpProvider.defaults.headers.common['X-Requested-With'];
         $scope.gists = $http.get("https://api.github.com/users/gabhi/gists");
          //https://gist.githubusercontent.com/gabhi/{{gist.id}}/raw
         $scope.getdata = function(id) {
